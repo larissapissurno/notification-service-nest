@@ -3,6 +3,7 @@ import { AppService } from './app.service';
 import { MailService } from './mail/mail.service';
 import { PrismaService } from './prisma.service';
 import { randomUUID } from 'node:crypto';
+import { CreateNotificationBody } from './create-notification-body';
 
 @Controller('notifications')
 export class AppController {
@@ -28,7 +29,7 @@ export class AppController {
   }
 
   @Post()
-  async create(@Body() body: { content: string, category: string, recipientId: string }) {
+  async create(@Body() body: CreateNotificationBody) {
     await this.prismaService.notification.create({
       data: {
         id: randomUUID(),
