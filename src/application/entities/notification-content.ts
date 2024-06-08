@@ -16,7 +16,6 @@ export class NotificationContent {
   }
 
   constructor(content: string) {
-
     this.validateContentLength(content);
 
     this.content = content;

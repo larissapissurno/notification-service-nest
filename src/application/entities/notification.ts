@@ -4,7 +4,7 @@
  * sometimes an entity can be mapped to more than one table on DB
  */
 
-import { NotificationContent } from "./notification-content";
+import { NotificationContent } from './notification-content';
 
 export interface INotificationProps {
   recipientId: string;
@@ -56,6 +56,4 @@ export class Notification {
   public get createdAt(): Date {
     return this.props.createdAt;
   }
-
 }
-
