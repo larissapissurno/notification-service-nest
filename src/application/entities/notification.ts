@@ -4,6 +4,7 @@
  * sometimes an entity can be mapped to more than one table on DB
  */
 
+import { Replace } from 'src/helpers/Replace';
 import { NotificationContent } from './notification-content';
 
 export interface INotificationProps {
@@ -17,8 +18,11 @@ export interface INotificationProps {
 export class Notification {
   private props: INotificationProps;
 
-  constructor(props: INotificationProps) {
-    this.props = props;
+  constructor(props: Replace<INotificationProps, { createdAt?: Date }>) {
+    this.props = {
+      ...props,
+      createdAt: props.createdAt || new Date(),
+    };
   }
 
   public get recipientId(): string {
