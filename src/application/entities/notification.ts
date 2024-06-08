@@ -4,9 +4,11 @@
  * sometimes an entity can be mapped to more than one table on DB
  */
 
+import { NotificationContent } from "./notification-content";
+
 export interface INotificationProps {
   recipientId: string;
-  content: string;
+  content: NotificationContent;
   category: string;
   readAt?: Date | null;
   createdAt: Date;
@@ -27,11 +29,11 @@ export class Notification {
     this.props.recipientId = recipientId;
   }
 
-  public set content(content: string) {
+  public set content(content: NotificationContent) {
     this.props.content = content;
   }
 
-  public get content(): string {
+  public get content(): NotificationContent {
     return this.props.content;
   }
 
