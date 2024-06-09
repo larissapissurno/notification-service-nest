@@ -1,22 +1,14 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { AppService } from './app.service';
-import { MailService } from '../mail/mail.service';
-import { PrismaService } from './prisma.service';
+import { PrismaService } from '../../database/prisma.service';
 import { randomUUID } from 'node:crypto';
-import { CreateNotificationBody } from './create-notification-body';
+import { CreateNotificationBody } from '../dtos/create-notification-body';
 
-@Controller('notifications')
-export class AppController {
+@Controller('examples')
+export class ExampleController {
   constructor(
-    // private readonly appService: AppService,
     // private readonly mailService: MailService,
     private readonly prismaService: PrismaService,
   ) {}
-
-  // @Get('hello')
-  // getHello(): string {
-  //   return this.appService.getHello();
-  // }
 
   // @Get('sendmail')
   // sendMail(): string {
@@ -25,7 +17,7 @@ export class AppController {
 
   @Get()
   getAll() {
-    return this.prismaService.notification.findMany(); 
+    return this.prismaService.notification.findMany();
   }
 
   @Post()
@@ -33,7 +25,7 @@ export class AppController {
     await this.prismaService.notification.create({
       data: {
         id: randomUUID(),
-        ...body
+        ...body,
       },
     });
   }

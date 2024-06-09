@@ -1,21 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './infra/app.controller';
-import { AppService } from './infra/app.service';
-import { MailService } from './mail/mail.service';
-import { PostmarkMailService } from './mail/postmark-mail.service';
-import { PrismaService } from './infra/prisma.service';
+import { HttpModule } from './infra/http/http.module';
+import { DatabaseModule } from './infra/database/database.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [
-    AppService, 
-    PrismaService,
-    {
-      // that's needed to provide the MailService since it's an abstract class
-      provide: MailService,
-      useClass: PostmarkMailService,
-    }
-  ],
+  imports: [HttpModule, DatabaseModule],
 })
 export class AppModule {}
