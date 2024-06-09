@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { PrismaService } from './prisma.service';
+import { PrismaService } from './prisma/prisma.service';
 import { MailService } from 'src/mail/mail.service';
 import { PostmarkMailService } from 'src/mail/postmark-mail.service';
 

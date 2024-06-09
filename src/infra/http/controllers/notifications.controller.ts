@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { PrismaService } from '../../database/prisma.service';
+import { PrismaService } from '../../database/prisma/prisma.service';
 import { randomUUID } from 'node:crypto';
 import { CreateNotificationBody } from '../dtos/create-notification-body';
 
