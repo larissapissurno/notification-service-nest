@@ -1,12 +1,10 @@
+import { InMemoryNotificationsRepository } from '../../../test/in-memory-notifications-repository';
 import { SendNotification } from './send-notification';
-
-const notificationsRepository = {
-  create: jest.fn(),
-};
 
 describe('SendNotification', () => {
   it('should be able to send a notification', async () => {
     // Arrange
+    const notificationsRepository = new InMemoryNotificationsRepository();
     const sendNotification = new SendNotification(notificationsRepository);
 
     // Act
@@ -19,7 +17,7 @@ describe('SendNotification', () => {
 
     // Assert
     expect(response.notification).toBeTruthy();
-    expect(notificationsRepository.create).toHaveBeenCalledWith(
+    expect(notificationsRepository.notifications[0]).toEqual(
       response.notification,
     );
   });
