@@ -1,4 +1,4 @@
-import { InMemoryNotificationsRepository } from '../../../test/in-memory-notifications-repository';
+import { InMemoryNotificationsRepository } from '../../../test/repositories/in-memory-notifications-repository';
 import { Notification } from '../entities/notification';
 import { NotificationContent } from '../entities/notification-content';
 import { CancelNotification } from './cancel-notification';
