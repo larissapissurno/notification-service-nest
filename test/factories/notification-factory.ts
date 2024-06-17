@@ -5,7 +5,7 @@ import {
 import { NotificationContent } from '@/application/entities/notification-content';
 
 export function makeNotification(
-  overrides: Partial<INotificationProps>,
+  overrides: Partial<INotificationProps> = {},
 ): Notification {
   return new Notification({
     recipientId: 'rec_1',
