@@ -23,7 +23,7 @@ export class ReadNotification {
       throw new NotificationNotFound();
     }
 
-    notification.markAsRead();
+    notification.read();
 
     await this.notificationsRepository.save(notification);
   }

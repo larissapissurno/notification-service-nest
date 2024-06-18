@@ -23,7 +23,7 @@ export class UnreadNotification {
       throw new NotificationNotFound();
     }
 
-    notification.markAsUnread();
+    notification.unread();
 
     await this.notificationsRepository.save(notification);
   }

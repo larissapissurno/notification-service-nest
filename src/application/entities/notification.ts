@@ -65,11 +65,11 @@ export class Notification {
     return this.props.readAt;
   }
 
-  public markAsRead(): void {
+  public read(): void {
     this.props.readAt = new Date();
   }
 
-  public markAsUnread(): void {
+  public unread(): void {
     this.props.readAt = null;
   }
 
