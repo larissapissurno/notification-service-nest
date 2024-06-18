@@ -3,7 +3,7 @@ import { CreateNotificationBody } from '../dtos/create-notification-body';
 import { SendNotification } from 'src/application/use-cases/send-notification';
 import { NotificationViewModel } from '../view-models/notification-view-model';
 import { CancelNotification } from '@/application/use-cases/cancel-notification';
-import { CountRecipientNotification } from '@/application/use-cases/count-recipient-notifications';
+import { CountRecipientNotifications } from '@/application/use-cases/count-recipient-notifications';
 import { ReadNotification } from '@/application/use-cases/read-notification';
 import { UnreadNotification } from '@/application/use-cases/unread-notification';
 import { GetRecipientNotifications } from '@/application/use-cases/get-recipient-notifications';
@@ -13,7 +13,7 @@ export class NotificationsController {
   constructor(
     private readonly sendNotification: SendNotification,
     private readonly cancelNotification: CancelNotification,
-    private readonly countRecipientNotifications: CountRecipientNotification,
+    private readonly countRecipientNotifications: CountRecipientNotifications,
     private readonly readNotification: ReadNotification,
     private readonly unreadNotification: UnreadNotification,
     private readonly getRecipientNotifications: GetRecipientNotifications,
